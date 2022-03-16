@@ -4,7 +4,7 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 
-public class main {
+public class Main {
 
     public static void main(final String[] args) {
         //Creo un token inicializado
@@ -22,9 +22,10 @@ public class main {
                 //Le doy un canal y lo guardo en "channel"
                 final MessageChannel channel = message.getChannel().block();
                 //Creo un mensaje "!Pong"
-                channel.createMessage("Pong!").block();
+                channel.createMessage("Pong!").block(0);
             }
         });
+
         //Me desconecto de la sesión
         gateway.onDisconnect().block();
     }
